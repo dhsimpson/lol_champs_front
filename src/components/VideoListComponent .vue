@@ -1,5 +1,5 @@
 <template>
-  
+  <div>video list!</div>
 </template>
 
 <script>

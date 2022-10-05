@@ -1,5 +1,5 @@
 <template>
-  
+  <div>search comp!</div>
 </template>
 
 <script>

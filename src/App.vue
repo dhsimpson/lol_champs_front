@@ -1,5 +1,7 @@
 <template>
-helelo world
+  <header-component/>
+  <search-component/>
+  <video-list-component/>
 </template>
 
 <script>

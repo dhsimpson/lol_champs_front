@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#app {
+  background-color: $represent-color;
+}
 </style>
-VideoListComponent

@@ -1,8 +1,8 @@
 <template>
-<div class="filter-wrapper">
-    <filter-component/>
-    <search-button-component/>
-</div>
+  <div class="filter-wrapper">
+      <filter-component/>
+      <search-button-component/>
+  </div>
 </template>
 
 <script>
@@ -20,8 +20,10 @@ export default {
 .filter-wrapper {
   display: flex;
   justify-content: space-between;
-  height: 60px;
-  border-bottom: 1px solid $color-heavy-gray;
-  padding: 10px 20px;
+  align-items: center;
+  height: 50px;
+  padding: 20px 20px;
+  font-weight: $font-weight-huge;
+  font-size: $font-small;
 }
 </style>

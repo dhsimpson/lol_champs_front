@@ -1,6 +1,9 @@
 <template>
-    <team-and-player-filter-component/>
-    <win-lose-filter-component/>
+    <div class="filter-container">
+      <team-and-player-filter-component/>
+      <win-lose-filter-component/>
+    </div>
+
 </template>
 
 <script>
@@ -16,5 +19,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.filter-container {
+  display: flex;
+}
 </style>

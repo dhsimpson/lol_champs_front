@@ -16,7 +16,6 @@ export default {
 <style lang="scss" scoped>
 .count-and-sort-wrapper {
   height: 60px;
-  // background-color: $color-very-light-gray;
   .count-and-sort-container {
     padding: 10px 20px;
     display: flex;

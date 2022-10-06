@@ -1,11 +1,13 @@
 <template>
   <header-component/>
+  <banner-component/>
   <search-component/>
   <video-list-component/>
   <footer-component/>
 </template>
 
 <script>
+import BannerComponent from './components/BannerComponent.vue'
 import FooterComponent from './components/FooterComponent.vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
@@ -16,7 +18,8 @@ export default {
     HeaderComponent,
     SearchComponent,
     VideoListComponent,
-    FooterComponent
+    FooterComponent,
+    BannerComponent
   },
   name: 'App',
 }

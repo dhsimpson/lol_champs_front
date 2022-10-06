@@ -22,6 +22,9 @@ export default {
     BannerComponent
   },
   name: 'App',
+  created() {
+    this.$store.dispatch('FETCH_VIDEO_LIST');
+  }
 }
 </script>
 

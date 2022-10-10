@@ -7,13 +7,9 @@
 </template>
 
 <script>
-// import {mapGetters} from 'vuex';
 
 export default {
   computed: {
-    // ...mapGetters({
-    //   videoList: 'GET_VIDEO_LIST'
-    // }),
     videoList() {
       const tempList = this.$store.getters['GET_VIDEO_LIST'];
       const chunkSize = 2;

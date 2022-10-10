@@ -1,7 +1,7 @@
 <template>
   <ol v-for="(chunk, idx) in videoList" :key="idx">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
-      <button>
+      <button @click="showVideo(video)">
         <img :src="video.thumbNail" :alt="video.title">
         <h4>{{video.title}}</h4>
         <div>
@@ -12,12 +12,22 @@
       </button>
     </li>
   </ol>
+  <teleport v-if="showModal" to="#watch-video-modal">
+    <watch-video-modal/>
+  </teleport>
 </template>
 
 <script>
 import dayjs from 'dayjs';
+import WatchVideoModal from '../modal/WatchVideoModal.vue';
 
 export default {
+  components: {WatchVideoModal},
+  data() {
+    return {
+      showModal: false
+    }
+  },
   computed: {
     videoList() {
       const tempList = this.$store.getters['GET_VIDEO_LIST'];
@@ -49,6 +59,10 @@ export default {
       if(today.diff(uploadDt, 'M') > 0) return `${today.diff(uploadDt, 'M')}개월 전`;
       if(today.diff(uploadDt, 'd') > 0) return `${today.diff(uploadDt, 'd')}일 전`;
       return '오늘';
+    },
+    showVideo(video) {
+      video;
+      this.showModal = !this.showModal
     }
   }
 }

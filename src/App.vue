@@ -11,7 +11,7 @@ import BannerComponent from './components/BannerComponent.vue'
 import FooterComponent from './components/FooterComponent.vue'
 import HeaderComponent from './components/HeaderComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
-import VideoListComponent from './components/VideoListComponent .vue'
+import VideoListComponent from './components/VideoListComponent.vue'
 
 export default {
   components: { 

@@ -1,13 +1,15 @@
 <template>
   <ol v-for="(chunk, idx) in videoList" :key="idx">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
-      <img :src="video.thumbNail" :alt="video.title">
-      <h4>{{video.title}}</h4>
-      <div>
-        <span class="views">{{filterCounts(video.views)}} 회</span>
-        <span class="upload-date">&#183;{{filterUploadDate(video.uploadDate)}}</span>
-        <span class="likes">&#183;<i class="fa-solid fa-heart"></i>{{filterCounts(video.likes)}}</span>
-      </div>
+      <button>
+        <img :src="video.thumbNail" :alt="video.title">
+        <h4>{{video.title}}</h4>
+        <div>
+          <span class="views">{{filterCounts(video.views)}} 회</span>
+          <span class="upload-date">&#183;{{filterUploadDate(video.uploadDate)}}</span>
+          <span class="likes">&#183;<i class="fa-solid fa-heart"></i>{{filterCounts(video.likes)}}</span>
+        </div>
+      </button>
     </li>
   </ol>
 </template>
@@ -62,16 +64,23 @@ ol {
   li {
     list-style: none;
     width: 45%;
-    img {
-      width: 100%;
+    button {
+      padding: 0;
+      background-color: white;
+      border: 0;
+      text-align: start;
+      img {
+        width: 100%;
+      }
+      h4 {
+        margin: 2px 0;
+      }
+      div {
+        font-size: $font-very-small;
+        color: $color-very-heavy-gray;
+      }
     }
-    h4 {
-      margin: 2px 0;
-    }
-    div {
-      font-size: $font-very-small;
-      color: $color-very-heavy-gray;
-    }
+
   }
 }
 </style>

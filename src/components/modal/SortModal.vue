@@ -15,6 +15,7 @@ div {
     background-color: white;
     // z-index: 1;
     position: absolute;
-    top: 0;
+    top: 100%;
+    right: 0;
 }
 </style>

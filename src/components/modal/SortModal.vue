@@ -13,7 +13,6 @@ div {
     width: 200px;
     height: 400px;
     background-color: white;
-    // z-index: 1;
     position: absolute;
     top: 100%;
     right: 0;

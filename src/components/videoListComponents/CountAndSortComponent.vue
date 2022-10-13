@@ -2,8 +2,8 @@
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
       <span>10 개의 경기 동영상</span>
-      <button id="sort-button" @click="showModal=!showModal">좋아요 많은 순</button>
-      <teleport v-if="showModal" to="#sort-button" :disabled="false">
+      <button id="sort-button" @click="setModalName(modalName)">좋아요 많은 순</button>
+      <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
         <sort-modal/>
       </teleport>
     </div>
@@ -12,13 +12,19 @@
 
 <script>
 import SortModal from '@/components/modal/SortModal.vue'
+import atomicModal from '@/composables/atomicModal';
+
 export default {
   components: { SortModal },
   data() {
     return {
-      showModal: false
+      // showModal: false
     }
-  }
+  },
+  setup() {
+      const {showModal, modalName, currModalName, setModalName, isShowModal} = atomicModal('sortModal');
+      return {showModal, modalName, currModalName, setModalName, isShowModal};
+  },
 }
 </script>
 

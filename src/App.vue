@@ -25,6 +25,7 @@ export default {
   created() {
     this.$store.dispatch('FETCH_VIDEO_LIST');
     this.$store.dispatch('FETCH_TEAM_PLAYER_LIST');
+    this.$store.dispatch('FETCH_SORT_LIST');
   }
 }
 </script>

@@ -24,6 +24,7 @@ export default {
   name: 'App',
   created() {
     this.$store.dispatch('FETCH_VIDEO_LIST');
+    this.$store.dispatch('FETCH_TEAM_PLAYER_LIST');
   }
 }
 </script>

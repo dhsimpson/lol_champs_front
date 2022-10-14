@@ -1,0 +1,55 @@
+{
+    "teamList": [
+        {
+            "teamName": "T1",
+            "playerList": [
+                {"playerName": "Faker(이상혁)"},
+                {"playerName": "Zeus(최우제)"},
+                {"playerName": "Oner(문현준)"},
+                {"playerName": "Gumayusi(이민형)"},
+                {"playerName": "Keria(류민석)"}
+            ]
+        },
+        {
+            "teamName": "담원 기아",
+            "playerList": [
+                {"playerName": "Nuguri(장하권)"},
+                {"playerName": "Canyon(김건부)"},
+                {"playerName": "ShowMaker(허수)"},
+                {"playerName": "deokdam(서대길)"},
+                {"playerName": "Kellin(김형규)"}
+            ]
+        },
+        {
+            "teamName": "젠지",
+            "playerList": [
+                {"playerName": "Doran(최현준)"},
+                {"playerName": "Peanut(한왕호)"},
+                {"playerName": "Chovy(정지훈)"},
+                {"playerName": "Ruler(박재혁)"},
+                {"playerName": "Lehends(손시우)"}
+            ]
+        },
+        {
+            "teamName": "한화생명",
+            "playerList": [
+                {"playerName": "DuDu(이동주)"},
+                {"playerName": "OnFleek(김장겸)"},
+                {"playerName": "Willer(김정현)"},
+                {"playerName": "Karis(김홍조)"},
+                {"playerName": "SamD(이재훈)"}
+            ]
+        },
+        {
+            "teamName": "DRX",
+            "playerList": [
+                {"playerName": "Kingen(황성훈)"},
+                {"playerName": "Juhan(이주한)"},
+                {"playerName": "Pyosik(홍창현)"},
+                {"playerName": "Zeka(김건우)"},
+                {"playerName": "Deft(김혁규)"},
+                {"playerName": "BeryL(조건희)"}
+            ]
+        }
+    ]
+}

@@ -12,17 +12,12 @@
       </button>
     </li>
   </ol>
-  <!-- <teleport v-if="showModal" to="#watch-video-modal">
-    <watch-video-modal/>
-  </teleport> -->
 </template>
 
 <script>
 import dayjs from 'dayjs';
-// import WatchVideoModal from '../modal/WatchVideoModal.vue';
 
 export default {
-  // components: {WatchVideoModal},
   data() {
     return {
       showModal: false
@@ -61,8 +56,6 @@ export default {
       return '오늘';
     },
     showVideo(video) {
-      // video;
-      // this.showModal = !this.showModal
       this.$store.commit('SET_SELECTED_VIDEO', video);
     }
   }

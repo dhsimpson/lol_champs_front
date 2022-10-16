@@ -2,5 +2,6 @@ export default () => ({
     videoList: [],
     teamList: [],
     sortList: [],
-    openAtomicModalName: ''
+    openAtomicModalName: '',
+    selectedVideo: null
 })

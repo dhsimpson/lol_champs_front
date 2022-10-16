@@ -14,6 +14,8 @@ export default {
             return;   
         }
         state.openAtomicModalName = openAtomicModalName;
+    },
+    SET_SELECTED_VIDEO(state, selectedVideo) {
+        state.selectedVideo = selectedVideo;
     }
-    
 }

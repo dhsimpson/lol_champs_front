@@ -21,5 +21,6 @@ export default {
 <style lang="scss" scoped>
 .filter-container {
   display: flex;
+  position: relative;
 }
 </style>

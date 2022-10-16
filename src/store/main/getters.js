@@ -3,5 +3,6 @@ export default {
     GET_TEAM_LIST : state => state.teamList,
     GET_SORT_LIST : state => state.sortList,
     GET_OPEN_ATOMIC_MODAL_NAME : state => state.openAtomicModalName,
-    GET_SELECTED_VIDEO : state => state.selectedVideo
+    GET_SELECTED_VIDEO : state => state.selectedVideo,
+    GET_QUERY_PARAMS : state => state.params
 }

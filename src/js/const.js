@@ -1,0 +1,1 @@
+export const PLAYER_NOT_SELECTED='선택 없음';

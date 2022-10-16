@@ -17,5 +17,8 @@ export default {
     },
     SET_SELECTED_VIDEO(state, selectedVideo) {
         state.selectedVideo = selectedVideo;
+    },
+    SET_QUERY_PARAMS(state, params) {
+        Object.assign(state.params, params);
     }
 }

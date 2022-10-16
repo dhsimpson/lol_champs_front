@@ -2,7 +2,7 @@
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
       <span>{{videoList?.length ?? 0}} 개의 경기 동영상</span>
-      <button id="sort-button" @click="setModalName()">좋아요 많은 순</button>
+      <button id="sort-button" @click="setModalName()">{{sortOption}}</button>
       <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
         <sort-modal/>
       </teleport>
@@ -23,7 +23,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      videoList: 'GET_VIDEO_LIST'
+      videoList: 'GET_VIDEO_LIST',
+      sortOption: 'GET_SORT_OPTION'
     })
   }
 }

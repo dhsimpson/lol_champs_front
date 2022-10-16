@@ -4,5 +4,6 @@ export default () => ({
     sortList: [],
     openAtomicModalName: '',
     selectedVideo: null,
-    params: {}
+    params: {},
+    sortOption: ''
 })

@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li @click="alertSort(sort)" v-for="sort in sortList" :key="sort">
+    <li @click="selectSort(sort)" v-for="sort in sortList" :key="sort">
       {{sort}}
     </li>
   </ul>
@@ -15,8 +15,8 @@ export default {
     })
   },
   methods: {
-    alertSort(sort){
-      alert(sort)
+    selectSort(sort){
+      this.$store.commit('SET_SORT_OPTION', sort);
     }
   }
 }

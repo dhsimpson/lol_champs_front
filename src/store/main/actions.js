@@ -11,5 +11,6 @@ export default {
     },
     FETCH_SORT_LIST: ({commit}) => {
         commit('SET_SORT_LIST', sortList.sortList);
+        commit('SET_SORT_OPTION', sortList.sortList[0]);
     }
 }

@@ -5,7 +5,7 @@
         {{team.teamName}}
       </span>
       <ul :class="{'player-list':true, active: selectedTeamName==team.teamName}">
-        <li @click="alertPlayer(team.teamName, player.playerName)" v-for="player in team.playerList" :key="player.playerName">
+        <li @click="selectTeamAndPlayer(team.teamName, player.playerName)" v-for="player in team.playerList" :key="player.playerName">
           {{player.playerName}}
         </li>
       </ul>
@@ -30,7 +30,7 @@ export default {
     this.selectedTeamName = this.teamList[0].teamName;
   },
   methods: {
-    alertPlayer(team, player){
+    selectTeamAndPlayer(team, player){
       this.$store.commit('SET_QUERY_PARAMS', {team, player});
       //TODO : query params commit 및 dispatch 추가
       // alert(name)

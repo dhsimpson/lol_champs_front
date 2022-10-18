@@ -3,6 +3,10 @@
         :title="selectedVideo.title" frameborder="0" 
         allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
   </iframe>
+  <div>{{selectedVideo.title}}</div>
+  <div>{{selectedVideo.views}}</div>
+  <div>{{selectedVideo.uploadDate}}</div>
+  <div>{{selectedVideo.description}}</div> <!-- 타임라인 이나 풀영상 보기 주소(아프리카 등등) - 하이퍼링크 처리 -->
 </template>
 
 <script>
@@ -20,5 +24,8 @@ export default {
 iframe {
     width: 100%;
     height: 200px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
 }
 </style>

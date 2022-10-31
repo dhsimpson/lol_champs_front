@@ -50,7 +50,7 @@ export default {
 button {
     width: 100px;
     height: $button-medium-height;
-    border-radius: $border-radious/2;
+    border-radius: calc($border-radious / 2);
     border-width: 0.5px;
     border-color:  $color-light-gray;
     background-color: $color-button;
@@ -60,7 +60,7 @@ button {
     font-size: $font-small;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     position: relative;
 }
 .team-player-selected {

@@ -41,13 +41,13 @@ export default {
     }
     .win {
         border-right: 0;
-        border-top-left-radius: $border-radious/2;
-        border-bottom-left-radius: $border-radious/2;
+        border-top-left-radius: calc($border-radious / 2);
+        border-bottom-left-radius: calc($border-radious / 2);
     }
     .lose {
         border-left: 0;
-        border-top-right-radius: $border-radious/2;
-        border-bottom-right-radius: $border-radious/2;
+        border-top-right-radius: calc($border-radious / 2);
+        border-bottom-right-radius: calc($border-radious / 2);
     }
     .active {
         color: $fonr-color-button;

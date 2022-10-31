@@ -12,7 +12,7 @@ export default {
 button {
     width: 80px;
     height: $button-medium-height;
-    border-radius: $border-radious/2;
+    border-radius: calc($border-radious / 2);
     border-width: 0.5px;
     border-color:  $color-light-gray;
     background-color: $color-button;

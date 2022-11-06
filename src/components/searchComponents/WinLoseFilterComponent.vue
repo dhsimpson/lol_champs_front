@@ -1,17 +1,26 @@
 <template>
     <div class="win-lose-wrapper">
-        <div class="win-lose-container win active">
-            <input type="radio" id="win"><label for="win">승리한 경기</label>
+        <div :class="['win-lose-container', 'win', {active: winLose==='win'}]">
+            <input v-model="winLose" type="radio" id="win" value="win"><label for="win">승리한 경기</label>
         </div>
-        <div class="win-lose-container lose">
-            <input type="radio" id="win"><label for="win">패배한 경기</label>
+        <div :class="['win-lose-container', 'lose', {active: winLose==='lose'}]">
+            <input v-model="winLose" type="radio" id="lose" value="lose"><label for="lose">패배한 경기</label>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            winLose: "win"
+        }
+    },
+    watch: {
+        winLose(val) {
+            this.$store.commit('SET_QUERY_PARAMS', {winLose: val})
+        }
+    }
 }
 </script>
 

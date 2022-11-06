@@ -1,26 +1,37 @@
 <template>
-  <ul class="team-list">
-    <li v-for="seasonTeam in seasonTeamList" :key="seasonTeam.season">
-      <span :class="{active: seasonTeam.isActive}" @click.stop="selectSeason(seasonTeam.season)">
-        {{seasonTeam.season}}
-      </span>
-    </li>
-  </ul>
+    <ul :class="{'player-list':true, active: true}">
+        <li v-for="team in teamList" :key="team" @click="selectTeam(team.name)">
+            {{team.name}}
+        </li>
+    </ul>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 export default {
+    data() {
+        return {
+            season: ''
+        }
+    },
   computed: {
-    ...mapGetters({
-      seasonTeamList: 'GET_SEASON_TEAM_LIST'
-    })
+    teamList() {
+        const seasonTeamList = this.$store.getters['GET_SEASON_TEAM_LIST'];
+        const teamList = seasonTeamList.filter(seasonTeam => {
+            if(seasonTeam.isActive){
+                this.season = seasonTeam.season;
+            }
+            return seasonTeam.isActive;
+        })
+        console.log('teamList')
+        console.log(teamList)
+        return teamList[0].teams;
+    }
   },
   methods: {
-    selectSeason(season) {
-        this.$store.commit('SET_SELECTED_SEASON', season);
-        this.$store.commit('SET_QUERY_PARAMS', {season});
-    }
+      selectTeam(team) {
+          this.$store.commit('SET_SELECTED_TEAM', {season: this.season, name: team});
+          this.$store.commit('SET_QUERY_PARAMS', {team});
+      }
   }
 }
 </script>

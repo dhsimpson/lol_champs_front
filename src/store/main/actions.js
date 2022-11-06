@@ -11,9 +11,12 @@ export default {
         commit('SET_VIDEO_LIST', videoList.data.data);
     },
     FETCH_SEASON_TEAM_LIST: async ({commit}) => {
-        const seasonTeamList = await axios.get(`${apiBaseUrl}/main/all-team.json`);
-        console.log(seasonTeamList.data.data)
-        commit('SET_SEASON_TEAM_LIST', seasonTeamList.data.data);
+        try{
+            const seasonTeamList = await axios.get(`${apiBaseUrl}/main/all-team.json`);
+            commit('SET_SEASON_TEAM_LIST', seasonTeamList.data.data);
+        }catch(e){
+            console.log(e)
+        }
     },
     FETCH_SORT_LIST: ({commit}) => {
         commit('SET_SORT_LIST', sortList.sortList);

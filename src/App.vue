@@ -30,8 +30,6 @@ export default {
     this.$store.dispatch('FETCH_VIDEO_LIST');
     this.$store.dispatch('FETCH_SEASON_TEAM_LIST');
     this.$store.dispatch('FETCH_SORT_LIST');
-    this.$store.dispatch('FETCH_SEASON_LIST');
-    
   },
   computed: {
     ...mapGetters({

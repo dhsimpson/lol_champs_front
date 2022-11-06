@@ -55,9 +55,7 @@ export default {
     RESET_QUERY_PARAMS(state) {
         state.params = {};
         state.seasonTeamList.forEach((seasonTeam) => {
-            seasonTeam.teams.forEach(team => {
-                return {name: team, isActive: false}
-            });
+            seasonTeam.teams.forEach(team => team.isActive = false);
             seasonTeam.isActive = false;
         });
     }

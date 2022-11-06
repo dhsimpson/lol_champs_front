@@ -1,10 +1,14 @@
 <template>
-  <button><i class="fa-sharp fa-solid fa-magnifying-glass"></i> 검색</button>
+  <button @click="searchVideoList"><i class="fa-sharp fa-solid fa-magnifying-glass" ></i> 검색</button>
 </template>
 
 <script>
 export default {
-
+    methods: {
+        searchVideoList() {
+            alert(JSON.stringify(this.$store.getters['GET_QUERY_PARAMS']));
+        }
+    }
 }
 </script>
 

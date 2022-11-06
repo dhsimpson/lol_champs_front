@@ -18,13 +18,8 @@
             <team-modal/>
         </template>
     </modal-toggle-btn>
-        
-    <!-- <div class="team-player-selected" v-if="params.season">
-        <span>{{selectedParams()}}</span>
-        <span @click="deleteTeamAndPlayer()" class="delete">x</span>
-    </div> -->
-
-
+    
+    <i class="fa-sharp fa-solid fa-arrow-rotate-right refresh-button" @click="deleteTeamAndPlayer()"></i>
 </template>
 
 <script>
@@ -43,19 +38,22 @@ export default {
         })
     },
     methods: {
-        // selectedParams() {
-        //     let seasonTeam = this.params.season;
-        //     if(this.params.team) {
-        //         seasonTeam += `>${this.params.team}`;
-        //     }
-        //     return seasonTeam;
-        // },
-        // deleteTeamAndPlayer() {
-        //     this.$store.commit('RESET_QUERY_PARAMS');
-        // }
+        selectedParams() {
+            let seasonTeam = this.params.season;
+            if(this.params.team) {
+                seasonTeam += `>${this.params.team}`;
+            }
+            return seasonTeam;
+        },
+        deleteTeamAndPlayer() {
+            this.$store.commit('RESET_QUERY_PARAMS');
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
+.refresh-button {
+    font-size: 25px;
+}
 </style>

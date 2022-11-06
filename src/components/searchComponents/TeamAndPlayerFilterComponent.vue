@@ -18,8 +18,7 @@
             <team-modal/>
         </template>
     </modal-toggle-btn>
-    
-    <i class="fa-sharp fa-solid fa-arrow-rotate-right refresh-button" @click="deleteTeamAndPlayer()"></i>
+    <reset-filter-btn/>
 </template>
 
 <script>
@@ -27,33 +26,16 @@ import { mapGetters } from 'vuex';
 import ModalToggleBtn from './ModalToggleBtn.vue';
 import TeamPlayerModal from '@/components/modal/TeamPlayerModal.vue'
 import TeamModal from '../modal/TeamModal.vue';
+import ResetFilterBtn from './ResetFilterBtn.vue';
 
 export default {
-    components: { TeamPlayerModal, ModalToggleBtn, TeamModal },
+    components: { TeamPlayerModal, ModalToggleBtn, TeamModal, ResetFilterBtn },
     computed: {
          ...mapGetters({
             params: 'GET_QUERY_PARAMS',
             selectedSeason: 'GET_SELECTED_SEASON',
             selectedTeam: 'GET_SELECTED_TEAM'
         })
-    },
-    methods: {
-        selectedParams() {
-            let seasonTeam = this.params.season;
-            if(this.params.team) {
-                seasonTeam += `>${this.params.team}`;
-            }
-            return seasonTeam;
-        },
-        deleteTeamAndPlayer() {
-            this.$store.commit('RESET_QUERY_PARAMS');
-        }
     }
 }
 </script>
-
-<style lang="scss" scoped>
-.refresh-button {
-    font-size: 25px;
-}
-</style>

@@ -3,14 +3,10 @@ export default {
         state.videoList = videoList;
     },
     SET_SEASON_TEAM_LIST(state, seasonTeamList) {
-        state.seasonTeamList = seasonTeamList.map((seasonTeam, idx) => {
+        state.seasonTeamList = seasonTeamList.map((seasonTeam) => {
             seasonTeam.teams = seasonTeam.teams.map(team => {
                 return {name: team, isActive: false}
             });
-            if(idx==0) {
-                seasonTeam.isActive = true;
-                return seasonTeam;
-            }
             seasonTeam.isActive = false;
             return seasonTeam;
         });
@@ -58,14 +54,10 @@ export default {
     },
     RESET_QUERY_PARAMS(state) {
         this.commit('SET_QUERY_PARAMS', {season: null, team: null});
-        state.seasonTeamList.forEach((seasonTeam, idx) => {
+        state.seasonTeamList.forEach((seasonTeam) => {
             seasonTeam.teams.forEach(team => {
                 return {name: team, isActive: false}
             });
-            if(idx==0) {
-                seasonTeam.isActive = true;
-                return;
-            }
             seasonTeam.isActive = false;
         });
     }

@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li @click="selectSort(sort)" v-for="sort in sortList" :key="sort">
+    <li @click.stop="selectSort(sort)" v-for="sort in sortList" :key="sort">
       {{sort}}
     </li>
   </ul>
@@ -8,15 +8,22 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import atomicModal from '@/composables/atomicModal';
+
 export default {
   computed: {
     ...mapGetters({
       sortList: 'GET_SORT_LIST'
     })
   },
+  setup() {
+      const {closeAllModal} = atomicModal();
+      return {closeAllModal};
+  },
   methods: {
     selectSort(sort){
       this.$store.commit('SET_SORT_OPTION', sort);
+      this.closeAllModal();
     }
   }
 }

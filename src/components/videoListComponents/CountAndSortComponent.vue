@@ -2,7 +2,7 @@
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
       <span>{{videoList?.length ?? 0}} 개의 경기 동영상</span>
-      <button id="sort-button" @click="setModalName()">{{sortOption}}</button>
+      <button id="sort-button" @click="showModal()">{{sortOption}}</button>
       <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
         <sort-modal/>
       </teleport>
@@ -18,8 +18,8 @@ import { mapGetters } from 'vuex';
 export default {
   components: { SortModal },
   setup() {
-      const {showModal, currModalName, setModalName, isShowModal} = atomicModal('sortModal');
-      return {showModal, currModalName, setModalName, isShowModal};
+      const {showModal, currModalName, isShowModal} = atomicModal('sortModal');
+      return {showModal, currModalName, isShowModal};
   },
   computed: {
     ...mapGetters({

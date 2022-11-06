@@ -1,7 +1,7 @@
 <template>
-    <ul :class="['team-list']">
+    <ul v-if="teamList" :class="['team-list']">
         <li v-for="team in teamList" :key="team">
-            <span :class="{active: team.isActive}" @click="selectTeam(team.name)">
+            <span :class="{active: team.isActive}" @click.stop="selectTeam(team.name)">
                 {{team.name}}
             </span>
         </li>
@@ -9,30 +9,37 @@
 </template>
 
 <script>
+import atomicModal from '@/composables/atomicModal';
+
 export default {
     data() {
         return {
             season: ''
         }
     },
-  computed: {
-    teamList() {
-        const seasonTeamList = this.$store.getters['GET_SEASON_TEAM_LIST'];
-        const teamList = seasonTeamList.filter(seasonTeam => {
-            if(seasonTeam.isActive){
-                this.season = seasonTeam.season;
-            }
-            return seasonTeam.isActive;
-        })
-        return teamList[0].teams;
+    setup() {
+        const {closeAllModal} = atomicModal();
+        return {closeAllModal};
+    },
+    computed: {
+        teamList() {
+            const seasonTeamList = this.$store.getters['GET_SEASON_TEAM_LIST'];
+            const teamList = seasonTeamList.filter(seasonTeam => {
+                if(seasonTeam.isActive){
+                    this.season = seasonTeam.season;
+                }
+                return seasonTeam.isActive;
+            })
+            return teamList[0]?.teams;
+        }
+    },
+    methods: {
+        selectTeam(team) {
+            this.$store.commit('SET_SELECTED_TEAM', {season: this.season, name: team});
+            this.$store.commit('SET_QUERY_PARAMS', {team});
+            this.closeAllModal();
+        }
     }
-  },
-  methods: {
-      selectTeam(team) {
-          this.$store.commit('SET_SELECTED_TEAM', {season: this.season, name: team});
-          this.$store.commit('SET_QUERY_PARAMS', {team});
-      }
-  }
 }
 </script>
 

@@ -10,16 +10,23 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import atomicModal from '@/composables/atomicModal';
+
 export default {
   computed: {
     ...mapGetters({
       seasonTeamList: 'GET_SEASON_TEAM_LIST'
     })
   },
+  setup() {
+      const {closeAllModal} = atomicModal();
+      return {closeAllModal};
+  },
   methods: {
     selectSeason(season) {
         this.$store.commit('SET_SELECTED_SEASON', season);
         this.$store.commit('SET_QUERY_PARAMS', {season});
+        this.closeAllModal();
     }
   }
 }

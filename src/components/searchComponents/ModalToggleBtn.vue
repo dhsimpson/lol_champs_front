@@ -1,5 +1,5 @@
 <template>
-    <button :id="modalName" @click="setModalName()">
+    <button :id="modalName" @click="showModal()">
         <slot name="button"></slot>
     </button>
     <teleport v-if="isShowModal()" :to="`#${modalName}`" :disabled="false">
@@ -13,8 +13,8 @@ import atomicModal from '@/composables/atomicModal';
 export default {
     props: ['modalName'],
     setup(props) {
-        const {showModal, currModalName, setModalName, isShowModal} = atomicModal(props.modalName);
-        return {showModal, currModalName, setModalName, isShowModal};
+        const {showModal, currModalName, isShowModal} = atomicModal(props.modalName);
+        return {showModal, currModalName, isShowModal};
     },
 }
 </script>

@@ -22,7 +22,8 @@ export default {
 <style lang="scss" scoped>
 button {
     width: 45%;
-    height: $button-medium-height;
+    min-height: $button-medium-height;
+    max-height: 300px;
     border-radius: calc($border-radious / 2);
     border-width: 0.5px;
     border-color:  $color-light-gray;

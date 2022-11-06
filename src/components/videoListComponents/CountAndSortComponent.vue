@@ -2,7 +2,7 @@
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
       <span>{{videoList?.length ?? 0}} 개의 경기 동영상</span>
-      <button id="sort-button" @click="showModal()">{{sortOption}}</button>
+      <button id="sort-button" @click="showModal()">{{sortOption || '정렬 방법 선택'}}</button>
       <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
         <sort-modal/>
       </teleport>

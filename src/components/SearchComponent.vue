@@ -1,17 +1,22 @@
 <template>
-  <div class="filter-wrapper">
-      <filter-component/>
-      <search-button-component/>
-  </div>
+    <div class="filter-wrapper">
+        <filter-component/>
+    </div>
+    <div class="filter-wrapper">
+        <win-lose-filter-component/>
+        <search-button-component/>
+    </div>
 </template>
 
 <script>
 import FilterComponent from './searchComponents/FilterComponent.vue'
 import SearchButtonComponent from './searchComponents/SearchButtonComponent.vue'
+import WinLoseFilterComponent from './searchComponents/WinLoseFilterComponent.vue'
 export default {
   components: { 
     FilterComponent,
-    SearchButtonComponent 
+    WinLoseFilterComponent,
+    SearchButtonComponent,
   },
 }
 </script>

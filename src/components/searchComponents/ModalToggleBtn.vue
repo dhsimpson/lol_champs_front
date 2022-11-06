@@ -11,9 +11,6 @@
 import atomicModal from '@/composables/atomicModal';
 
 export default {
-    components: {
-        
-    },
     props: ['modalName'],
     setup(props) {
         const {showModal, currModalName, setModalName, isShowModal} = atomicModal(props.modalName);
@@ -22,6 +19,21 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+button {
+    width: 45%;
+    height: $button-medium-height;
+    border-radius: calc($border-radious / 2);
+    border-width: 0.5px;
+    border-color:  $color-light-gray;
+    background-color: $color-button;
+    color: $fonr-color-button;
+    font-weight: $font-weight-huge;
+    margin-right: 5px;
+    font-size: $font-small;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
 </style>

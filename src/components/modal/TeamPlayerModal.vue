@@ -1,5 +1,5 @@
 <template>
-  <ul class="team-list">
+  <ul class="season-list">
     <li v-for="seasonTeam in seasonTeamList" :key="seasonTeam.season">
       <span :class="{active: seasonTeam.isActive}" @click.stop="selectSeason(seasonTeam.season)">
         {{seasonTeam.season}}
@@ -27,9 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 $item-height: 40px;
-$team-name-width: 70px;
+$season-name-width: 70px;
 
-.team-list {
+.season-list {
   width: 250px;
   height: 200px;
   background-color: $color-button;
@@ -52,29 +52,6 @@ $team-name-width: 70px;
     span.active {
       background-color: white;
     }
-    // .player-list {
-    //   width: 200 - $team-name-width;
-    //   display: none;
-    //   padding: 0;
-    //   margin: 0;
-    //   list-style: none;
-    //   position: absolute;
-    //   left: 70px;
-    //   top: 0;
-    //   li {
-    //     padding: 0 0 0 10px;
-    //     height: $item-height;
-    //     line-height: $item-height;
-    //     border-bottom: 0.1px solid $color-light-gray;
-    //     box-sizing: content-box;
-    //   }
-    // }
-    // .player-list.active {
-    //   display: block;
-    //   background-color: white;
-    // }
-    
   }
-
 }
 </style>

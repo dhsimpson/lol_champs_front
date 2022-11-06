@@ -32,6 +32,7 @@ export default {
                         team.isActive = true;
                         return;
                     }
+                    team.isActive = false;
                 });
             }
         });

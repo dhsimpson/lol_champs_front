@@ -1,7 +1,9 @@
 <template>
-    <ul :class="{'player-list':true, active: true}">
-        <li v-for="team in teamList" :key="team" @click="selectTeam(team.name)">
-            {{team.name}}
+    <ul :class="['team-list']">
+        <li v-for="team in teamList" :key="team">
+            <span :class="{active: team.isActive}" @click="selectTeam(team.name)">
+                {{team.name}}
+            </span>
         </li>
     </ul>
 </template>
@@ -22,8 +24,6 @@ export default {
             }
             return seasonTeam.isActive;
         })
-        console.log('teamList')
-        console.log(teamList)
         return teamList[0].teams;
     }
   },
@@ -41,12 +41,13 @@ $item-height: 40px;
 $team-name-width: 70px;
 
 .team-list {
-  width: 250px;
+  width: 200%;
   height: 200px;
   background-color: $color-button;
   z-index: 1;
   position: absolute;
   top: 100%;
+  right: 0;
   color: black;
   padding: 0;
   margin: 0;
@@ -63,28 +64,6 @@ $team-name-width: 70px;
     span.active {
       background-color: white;
     }
-    // .player-list {
-    //   width: 200 - $team-name-width;
-    //   display: none;
-    //   padding: 0;
-    //   margin: 0;
-    //   list-style: none;
-    //   position: absolute;
-    //   left: 70px;
-    //   top: 0;
-    //   li {
-    //     padding: 0 0 0 10px;
-    //     height: $item-height;
-    //     line-height: $item-height;
-    //     border-bottom: 0.1px solid $color-light-gray;
-    //     box-sizing: content-box;
-    //   }
-    // }
-    // .player-list.active {
-    //   display: block;
-    //   background-color: white;
-    // }
-    
   }
 
 }

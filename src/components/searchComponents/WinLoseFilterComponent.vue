@@ -1,10 +1,10 @@
 <template>
     <div class="win-lose-wrapper">
         <div class="win-lose-container win active">
-            <input type="radio" id="win"><label for="win">승리</label>
+            <input type="radio" id="win"><label for="win">승리한 경기</label>
         </div>
         <div class="win-lose-container lose">
-            <input type="radio" id="win"><label for="win">패배</label>
+            <input type="radio" id="win"><label for="win">패배한 경기</label>
         </div>
     </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     height: $button-medium-height;
     .win-lose-container {
         color: black;
-        width: 50px;
+        width: 100px;
         border: 1px solid black;
         background-color: $represent-color;
         position: relative;

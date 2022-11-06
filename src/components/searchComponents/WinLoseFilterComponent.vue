@@ -1,23 +1,29 @@
 <template>
     <div class="win-lose-wrapper">
         <div :class="['win-lose-container', 'win', {active: winLose==='win'}]">
-            <input v-model="winLose" type="radio" id="win" value="win"><label for="win">승리한 경기</label>
+            <input v-model="winLoseVal" type="radio" id="win" value="win"><label for="win">승리한 경기</label>
         </div>
         <div :class="['win-lose-container', 'lose', {active: winLose==='lose'}]">
-            <input v-model="winLose" type="radio" id="lose" value="lose"><label for="lose">패배한 경기</label>
+            <input v-model="winLoseVal" type="radio" id="lose" value="lose"><label for="lose">패배한 경기</label>
         </div>
     </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            winLose: "win"
+            winLoseVal: ''
         }
     },
+    computed: {
+        ...mapGetters({
+            winLose: 'GET_SELECTED_WIN_LOSE'
+        })
+    },
     watch: {
-        winLose(val) {
+        winLoseVal(val) {
             this.$store.commit('SET_QUERY_PARAMS', {winLose: val})
         }
     }

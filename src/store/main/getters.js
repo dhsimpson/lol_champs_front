@@ -8,4 +8,5 @@ export default {
     GET_QUERY_PARAMS : state => state.params,
     GET_SELECTED_SEASON : state => state.params.season,
     GET_SELECTED_TEAM : state => state.params.team,
+    GET_SELECTED_WIN_LOSE : state => state.params.winLose,
 }

@@ -53,7 +53,7 @@ export default {
         Object.assign(state.params, params);
     },
     RESET_QUERY_PARAMS(state) {
-        this.commit('SET_QUERY_PARAMS', {season: null, team: null});
+        state.params = {};
         state.seasonTeamList.forEach((seasonTeam) => {
             seasonTeam.teams.forEach(team => {
                 return {name: team, isActive: false}

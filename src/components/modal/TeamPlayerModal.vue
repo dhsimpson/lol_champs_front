@@ -1,12 +1,12 @@
 <template>
   <ul class="team-list">
-    <li v-for="team in teamList" :key="team.teamName">
-      <span :class="{active: selectedTeamName==team.teamName}" @click.stop="selectedTeamName=team.teamName">
-        {{team.teamName}}
+    <li v-for="seasonTeam in seasonTeamList" :key="seasonTeam.season">
+      <span :class="{active: selectedSeason==seasonTeam.season}" @click.stop="selectedSeason=seasonTeam.season">
+        {{seasonTeam.season}}
       </span>
-      <ul :class="{'player-list':true, active: selectedTeamName==team.teamName}">
-        <li @click="selectTeamAndPlayer(team.teamName, player.playerName)" v-for="player in team.playerList" :key="player.playerName">
-          {{player.playerName}}
+      <ul :class="{'player-list':true, active: selectedSeason==seasonTeam.season}">
+        <li @click="selectTeamAndPlayer(seasonTeam.season, team)" v-for="team in seasonTeam.teams" :key="team">
+          {{team}}
         </li>
       </ul>
     </li>
@@ -18,16 +18,16 @@ import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      selectedTeamName: ''
+      selectedSeason: ''
       }
   },
   computed: {
     ...mapGetters({
-      teamList: 'GET_TEAM_LIST'
+      seasonTeamList: 'GET_SEASON_TEAM_LIST'
     })
   },
   mounted() {
-    this.selectedTeamName = this.teamList[0].teamName;
+    this.selectedSeason = this.seasonTeamList[0].season;
   },
   methods: {
     selectTeamAndPlayer(team, player){
@@ -61,6 +61,7 @@ $team-name-width: 70px;
       width: $team-name-width;
       height: $item-height;
       line-height: $item-height;
+      overflow: hidden;
     }
     span.active {
       background-color: white;

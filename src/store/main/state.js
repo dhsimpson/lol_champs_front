@@ -1,6 +1,6 @@
 export default () => ({
     videoList: [],
-    teamList: [],
+    seasonTeamList: [],
     sortList: [],
     openAtomicModalName: '',
     selectedVideo: null,

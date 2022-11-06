@@ -2,12 +2,12 @@
   <ol v-for="(chunk, idx) in videoList" :key="idx">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
       <button @click="showVideo(video)">
-        <img :src="video.thumbNail" :alt="video.title">
+        <img :src="video.thumbnails.high.url" :alt="video.title">
         <h4>{{video.title}}</h4>
         <div>
-          <span class="views">{{filterCounts(video.views)}} 회</span>
+          <!-- <span class="views">{{filterCounts(video.views)}} 회</span>
           <span class="upload-date">&#183;{{filterUploadDate(video.uploadDate)}}</span>
-          <span class="likes">&#183;<i class="fa-solid fa-heart"></i>{{filterCounts(video.likes)}}</span>
+          <span class="likes">&#183;<i class="fa-solid fa-heart"></i>{{filterCounts(video.likes)}}</span> -->
         </div>
       </button>
     </li>

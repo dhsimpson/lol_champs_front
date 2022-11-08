@@ -6,7 +6,7 @@
 export default {
     methods: {
         searchVideoList() {
-            alert(JSON.stringify(this.$store.getters['GET_QUERY_PARAMS']));
+            this.$store.dispatch('FETCH_VIDEO_LIST', this.$store.getters['GET_QUERY_PARAMS']);
         }
     }
 }

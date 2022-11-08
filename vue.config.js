@@ -7,5 +7,18 @@ module.exports = defineConfig({
         additionalData: `@import "@/assets/scss/global.scss";`
       }
     }
+  },
+  configureWebpack: {
+      devServer: {
+          headers: { "Access-Control-Allow-Origin": "*" }
+        }
+  },
+  devServer: {
+      proxy: {
+          '/v1': {
+              target: 'https://lck-data-gyu-young-park.koyeb.app',
+              changeOrigin: true,
+          }
+      }
   }
 })

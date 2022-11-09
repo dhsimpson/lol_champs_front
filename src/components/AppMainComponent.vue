@@ -6,6 +6,7 @@
   <video-list-component/>
   <footer-component/>
   <go-top-btn/>
+  <share-btn/>
 </template>
 
 <script>
@@ -16,6 +17,7 @@ import SearchComponent from './SearchComponent.vue'
 import VideoComponent from './VideoComponent.vue'
 import VideoListComponent from './VideoListComponent.vue'
 import GoTopBtn from './GoTopBtn.vue'
+import ShareBtn from './ShareBtn.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -26,7 +28,8 @@ export default {
     SearchComponent,
     VideoListComponent,
     FooterComponent,
-    GoTopBtn
+    GoTopBtn,
+    ShareBtn
   },
   name: 'AppMainComponent',
   created() {

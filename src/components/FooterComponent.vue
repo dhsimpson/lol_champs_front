@@ -1,7 +1,8 @@
 <template>
   <pre>
-    만든 사람 : 박규영 | 윤동희
-    문의 및 버그 제보 : qeadzc9503@naver.com (규리나 이메일 쓰까)
+    만든 사람 : Gyu | Dong
+    문의 및 버그 제보 : gyoue200125@gmail.com
+    qeadzc9503@naver.com
 
     Thanks to
     <a target="_blank" href="https://icons8.com/icon/24988/리그-오브-레전드">리그 오브 레전드</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

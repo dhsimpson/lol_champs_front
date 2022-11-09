@@ -7,8 +7,9 @@ const matchUrl = '/v1/lck-match/'; // match == viedo (매치영상)
 
 export default {
     FETCH_VIDEO_LIST: async ({commit}, params) => {
-        console.log(params);
-        const videoList = await axios.get(`${apiBaseUrl}${matchUrl}`);
+        const queryParam = Object.entries(params).reduce((acc, [key, value]) => acc += `${key}=${value}&`, '?');
+        // console.log(`${apiBaseUrl}${matchUrl}${queryParam}`)
+        const videoList = await axios.get(`${apiBaseUrl}${matchUrl}${queryParam}`);
         commit('SET_VIDEO_LIST', videoList.data.data);
     },
     FETCH_SEASON_TEAM_LIST: async ({commit}) => {

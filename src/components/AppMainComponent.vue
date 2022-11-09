@@ -27,7 +27,7 @@ export default {
   },
   name: 'AppMainComponent',
   created() {
-    this.$store.dispatch('FETCH_VIDEO_LIST');
+    this.$store.dispatch('FETCH_VIDEO_LIST', this.$route.query);
     this.$store.dispatch('FETCH_SEASON_TEAM_LIST');
     this.$store.dispatch('FETCH_SORT_LIST');
   },
@@ -35,6 +35,14 @@ export default {
     ...mapGetters({
         selectedVideo: 'GET_SELECTED_VIDEO'
     })
+  },
+  watch: {
+      $route(to, from) {
+          if(to.fullPath !== from.fullPath) {
+              this.$store.dispatch('FETCH_VIDEO_LIST', to.query);
+          }
+    //   console.log(this.$route.query)
+      }
   }
 }
 </script>

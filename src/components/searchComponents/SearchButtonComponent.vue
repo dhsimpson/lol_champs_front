@@ -6,7 +6,8 @@
 export default {
     methods: {
         searchVideoList() {
-            this.$store.dispatch('FETCH_VIDEO_LIST', this.$store.getters['GET_QUERY_PARAMS']);
+            this.$router.replace({name: 'main', query: {...this.$store.getters['GET_QUERY_PARAMS']}});
+            // this.$store.dispatch('FETCH_VIDEO_LIST', this.$store.getters['GET_QUERY_PARAMS']);
         }
     }
 }

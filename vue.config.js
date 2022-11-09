@@ -16,7 +16,7 @@ module.exports = defineConfig({
   devServer: {
       proxy: {
           '/v1': {
-              target: 'https://lck-data-gyu-young-park.koyeb.app',
+              target: 'https://lck-data-api.fly.dev',
               changeOrigin: true,
           }
       }

@@ -5,6 +5,7 @@
   <search-component/>
   <video-list-component/>
   <footer-component/>
+  <go-top-btn/>
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import HeaderComponent from './HeaderComponent.vue'
 import SearchComponent from './SearchComponent.vue'
 import VideoComponent from './VideoComponent.vue'
 import VideoListComponent from './VideoListComponent.vue'
+import GoTopBtn from './GoTopBtn.vue'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -23,7 +25,8 @@ export default {
     VideoComponent,
     SearchComponent,
     VideoListComponent,
-    FooterComponent
+    FooterComponent,
+    GoTopBtn
   },
   name: 'AppMainComponent',
   created() {

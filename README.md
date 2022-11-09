@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+빌드 결과물 s3에 배포 : aws s3 sync ./dist s3://{bucket-name}/

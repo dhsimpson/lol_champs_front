@@ -7,10 +7,19 @@
 <script>
 export default {
     methods: {
-        async copyUrl() {
-            navigator.clipboard.writeText(window.location.href);
-            await navigator.clipboard.readText();
-            alert('클립보드에 복사되었습니다.')
+        async copyUrl(e) {
+            const textArea = document.createElement("textarea");
+            textArea.value = window.location.href;
+            e.target.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                alert('클립보드에 복사되었습니다!')
+            } catch (err) {
+                console.error('Unable to copy to clipboard', err);
+            }
+            e.target.removeChild(textArea);
         }
     }
 }

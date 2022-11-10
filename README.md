@@ -24,4 +24,7 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-빌드 결과물 s3에 배포 : aws s3 sync ./dist s3://{bucket-name}/
+// 빌드 결과물 s3에 배포 : aws s3 sync ./dist s3://{bucket-name}/
+
+// firebase 배포로 변경 됨, 배포 : firebase deploy (./dist 경로는 이미 프로젝트 파이어베이스 설정에 저장됨)
+

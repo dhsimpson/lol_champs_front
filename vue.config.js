@@ -13,12 +13,12 @@ module.exports = defineConfig({
           headers: { "Access-Control-Allow-Origin": "*" }
         }
   },
-  devServer: {
-      proxy: {
-          '/v1': {
-              target: 'https://lck-data-api.fly.dev',
-              changeOrigin: true,
-          }
-      }
-  }
+//   devServer: {
+    //   proxy: {
+    //       '/v1': {
+    //           target: 'https://lck-data-api.fly.dev',
+    //           changeOrigin: true,
+    //       }
+    //   }
+//   }
 })

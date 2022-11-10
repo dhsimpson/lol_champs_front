@@ -1,7 +1,7 @@
 import sortList from "@/assets/json/sortList.json";
 import axios from 'axios';
 
-const apiBaseUrl = '';
+const apiBaseUrl = 'https://lck-data-api.fly.dev';
 const teamUrl = '/v1/lck-team/';
 const matchUrl = '/v1/lck-match/'; // match == viedo (매치영상)
 

@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 iframe {
     width: 100%;
-    height: 200px;
+    height: 250px;
     position: sticky;
     top: 0;
     z-index: 10;

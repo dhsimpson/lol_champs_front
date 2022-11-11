@@ -12,6 +12,9 @@
       </button>
     </li>
   </ol>
+  <div class="videoListLoading" v-if="videoList.length<1">
+    데이터를 로딩 중입니다!!
+  </div>
 </template>
 
 <script>
@@ -90,5 +93,12 @@ ol {
     }
 
   }
+}
+.videoListLoading {
+    width: 100%; 
+    text-align: center;
+    padding: 150px 0;
+    font-size: 30px;
+    font-weight: $font-weight-huge;
 }
 </style>

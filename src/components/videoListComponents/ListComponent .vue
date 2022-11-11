@@ -1,5 +1,5 @@
 <template>
-  <ol v-for="(chunk, idx) in videoList" :key="idx">
+  <ol v-for="(chunk, idx) in videoList" :key="idx" @touchmove="detectPagination">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
       <button @click="showVideo(video)">
         <img :src="video.thumbnails.high.url" :alt="video.title">
@@ -19,14 +19,18 @@
 
 <script>
 import dayjs from 'dayjs';
+import { mapGetters } from 'vuex';
 
 export default {
   data() {
     return {
-      showModal: false
+      showModal: false,
     }
   },
   computed: {
+    ...mapGetters({
+        isLoading: 'GET_IS_LOADING'
+    }),
     videoList() {
       const tempList = this.$store.getters['GET_VIDEO_LIST'];
       const chunkSize = 2;
@@ -60,6 +64,12 @@ export default {
     },
     showVideo(video) {
       this.$store.commit('SET_SELECTED_VIDEO', video);
+    },
+    detectPagination() {
+        if((window.innerHeight + window.scrollY + 400) >= document.body.offsetHeight && !this.isLoading) {
+            this.$store.commit('TOGGLE_IS_LOADING', true);
+            this.$store.dispatch('ADD_VIDEO_LIST', this.$route.query);
+        }
     }
   }
 }
@@ -100,5 +110,6 @@ ol {
     padding: 150px 0;
     font-size: 30px;
     font-weight: $font-weight-huge;
+    color: $color-very-heavy-gray;
 }
 </style>

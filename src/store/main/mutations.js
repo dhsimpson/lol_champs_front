@@ -2,6 +2,12 @@ export default {
     SET_VIDEO_LIST(state, videoList) {
         state.videoList = videoList;
     },
+    ADD_VIDEO_LIST(state, newVideoList) {
+        state.videoList.push(...newVideoList);
+    },
+    TOGGLE_IS_LOADING(state, toggleState) {
+        state.isLoading = toggleState;
+    },
     SET_SEASON_TEAM_LIST(state, seasonTeamList) {
         state.seasonTeamList = seasonTeamList.map((seasonTeam) => {
             seasonTeam.teams = seasonTeam.teams.map(team => {

@@ -1,5 +1,6 @@
 export default {
     GET_VIDEO_LIST : state => state.videoList,
+    GET_IS_LOADING : state => state.isLoading,
     GET_SEASON_TEAM_LIST : state => state.seasonTeamList,
     GET_SORT_LIST : state => state.sortList,
     GET_SORT_OPTION : state => state.params.sortOption,

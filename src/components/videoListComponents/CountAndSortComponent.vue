@@ -51,7 +51,7 @@ export default {
       border-width: 0.5px;
       border-color:  $color-light-gray;
       background-color: $color-button;
-      color: $fonr-color-button;
+      color: $font-color-button;
       font-weight: $font-weight-huge;
       font-size: $font-small;
       position: relative;

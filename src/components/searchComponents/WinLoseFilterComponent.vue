@@ -65,7 +65,7 @@ export default {
         border-bottom-right-radius: calc($border-radious / 2);
     }
     .active {
-        color: $fonr-color-button;
+        color: $font-color-button;
         background-color: $color-button;
     }
 }

@@ -55,9 +55,11 @@ $season-name-width: 70px;
       height: $item-height;
       line-height: $item-height;
       overflow: hidden;
+      color: $font-color-button;
     }
     span.active {
       background-color: white;
+      color: $font-active-color-button;
     }
   }
 }

@@ -28,7 +28,7 @@ button {
     border-width: 0.5px;
     border-color:  $color-light-gray;
     background-color: $color-button;
-    color: $fonr-color-button;
+    color: $font-color-button;
     font-weight: $font-weight-huge;
     margin-right: 5px;
     font-size: $font-small;

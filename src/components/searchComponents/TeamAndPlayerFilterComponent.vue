@@ -5,7 +5,7 @@
             <span>{{selectedSeason || '시즌 선택'}}</span>
         </template>
         <template v-slot:modal>
-            <team-player-modal/>
+            <season-team-modal/>
         </template>
     </modal-toggle-btn>
 
@@ -24,12 +24,12 @@
 <script>
 import { mapGetters } from 'vuex';
 import ModalToggleBtn from './ModalToggleBtn.vue';
-import TeamPlayerModal from '@/components/modal/TeamPlayerModal.vue'
+import SeasonTeamModal from '@/components/modal/SeasonTeamModal.vue'
 import TeamModal from '../modal/TeamModal.vue';
 import ResetFilterBtn from './ResetFilterBtn.vue';
 
 export default {
-    components: { TeamPlayerModal, ModalToggleBtn, TeamModal, ResetFilterBtn },
+    components: { SeasonTeamModal, ModalToggleBtn, TeamModal, ResetFilterBtn },
     computed: {
          ...mapGetters({
             params: 'GET_QUERY_PARAMS',

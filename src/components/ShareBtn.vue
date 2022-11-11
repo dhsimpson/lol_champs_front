@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="fa-solid fa-square-share-nodes" @click="copyUrl"></i>
+        <i class="fa-solid fa-share-nodes" @click="copyUrl"></i>
     </div>
 </template>
 
@@ -36,15 +36,10 @@ div {
         position: absolute;
         font-size: 50px;
         right: 10px;
+        background-color: black;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 25%;
     }
 }
-// i {
-//     font-size: 40px;
-//     position: sticky;
-//     bottom: 15px;
-//     width: 100%;
-//     right: 30px;
-//     display: inline-block;
-//     // text-align: end;
-// }
 </style>

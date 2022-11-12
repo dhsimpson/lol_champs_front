@@ -1,15 +1,15 @@
 <template>
     <div class="filter-container">
-      <team-and-player-filter-component/>
+      <season-team-filter-component/>
     </div>
 
 </template>
 
 <script>
-import TeamAndPlayerFilterComponent from './TeamAndPlayerFilterComponent.vue'
+import SeasonTeamFilterComponent from './SeasonTeamFilterComponent.vue'
 export default {
   components: { 
-    TeamAndPlayerFilterComponent
+    SeasonTeamFilterComponent
   },
 
 }

@@ -18,24 +18,12 @@ export default {
         });
     },
     SET_SELECTED_SEASON(state, season) {
-        state.seasonTeamList.forEach( seasonTeam => {
-            if(seasonTeam.season === season) {
-                seasonTeam.isActive = true;
-                return;
-            }
-            seasonTeam.isActive = false;
-        });
+        state.seasonTeamList.forEach( seasonTeam => seasonTeam.isActive = (seasonTeam.season === season));
     },
     SET_SELECTED_TEAM(state, {season, name}) {
         state.seasonTeamList.forEach(seasonTeam => {
             if(seasonTeam.season === season) {
-                seasonTeam.teams.forEach(team => {
-                    if(team.name === name) {
-                        team.isActive = true;
-                        return;
-                    }
-                    team.isActive = false;
-                });
+                seasonTeam.teams.forEach(team => team.isActive = (team.name === name));
             }
         });
     },
@@ -52,11 +40,7 @@ export default {
         state.params.sortOption = sortOption.name;
     },
     SET_OPEN_ATOMIC_MODAL_NAME(state, openAtomicModalName) {
-        if(state.openAtomicModalName == openAtomicModalName) {
-            state.openAtomicModalName = '';
-            return;   
-        }
-        state.openAtomicModalName = openAtomicModalName;
+        state.openAtomicModalName = state.openAtomicModalName == openAtomicModalName ? '' : openAtomicModalName
     },
     SET_SELECTED_VIDEO(state, selectedVideo) {
         state.selectedVideo = selectedVideo;

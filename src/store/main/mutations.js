@@ -40,10 +40,16 @@ export default {
         });
     },
     SET_SORT_LIST(state, sortList) {
-        state.sortList = sortList;
+        state.sortList = sortList.map(sort => {
+            return {
+                name: sort,
+                isActive: false
+            }
+        })
     },
     SET_SORT_OPTION(state, sortOption) {
-        state.params.sortOption = sortOption;
+        state.sortList.forEach(sort => sort.isActive = (sort.name == sortOption.name))
+        state.params.sortOption = sortOption.name;
     },
     SET_OPEN_ATOMIC_MODAL_NAME(state, openAtomicModalName) {
         if(state.openAtomicModalName == openAtomicModalName) {

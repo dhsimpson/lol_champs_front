@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li @click.stop="selectSort(sort)" v-for="sort in sortList" :key="sort">
-      {{sort}}
+    <li :class="{isActive: sort.isActive}" @click.stop="selectSort(sort)" v-for="sort in sortList" :key="sort">
+      {{sort.name}}
     </li>
   </ul>
 </template>
@@ -35,19 +35,23 @@ $item-height: 40px;
 ul {
     width: 130px;
     height: 150px;
-    background-color: white;
+    background-color: $color-button;
     position: absolute;
     top: 100%;
     right: 0;
-    color: black;
     list-style: none;
     margin: 0;
     padding: 0;
     overflow: scroll;
     li {
-      height: $item-height;
-      line-height: $item-height;
-      border-bottom: 0.1px solid $color-light-gray;
+        height: $item-height;
+        line-height: $item-height;
+        color: white;
+        border-bottom: 0.1px solid $color-light-gray;
+    }
+    li.isActive {
+        background-color: white;
+        color: $font-active-color-button;
     }
 }
 </style>

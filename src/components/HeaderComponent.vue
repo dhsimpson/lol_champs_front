@@ -1,6 +1,6 @@
 <template>
     <header>
-        <h3>롤챔스.com</h3>
+        <h3>롤 대회 하이라이트 골라보기</h3>
     </header>
 </template>
 

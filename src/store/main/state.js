@@ -1,6 +1,6 @@
 export default () => ({
     videoList: [],
-    pageNum: 1,
+    // pageNum: 1,
     isLoading: false,
     seasonTeamList: [],
     sortList: [],

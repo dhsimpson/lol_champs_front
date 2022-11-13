@@ -2,8 +2,8 @@
   <ol v-for="(chunk, idx) in videoList" :key="idx" @touchmove="detectPagination">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
       <button @click="showVideo(video)">
-        <img :src="video.thumbnails.high.url" :alt="video.title">
-        <h4>{{video.title}}</h4>
+        <img :src="video.Thumbnails?.High.URL" :alt="video.Title">
+        <h4>{{video.Title}}</h4>
         <div>
           <!-- <span class="views">{{filterCounts(video.views)}} 회</span>
           <span class="upload-date">&#183;{{filterUploadDate(video.uploadDate)}}</span>

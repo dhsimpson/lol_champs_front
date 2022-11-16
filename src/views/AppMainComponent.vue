@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import BannerComponent from './BannerComponent.vue'
-import FooterComponent from './FooterComponent.vue'
-import HeaderComponent from './HeaderComponent.vue'
-import SearchComponent from './SearchComponent.vue'
-import VideoComponent from './VideoComponent.vue'
-import VideoListComponent from './VideoListComponent.vue'
-import GoTopBtn from './GoTopBtn.vue'
-import ShareBtn from './ShareBtn.vue'
+import BannerComponent from '@/components/BannerComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import SearchComponent from '@/components/SearchComponent.vue'
+import VideoComponent from '@/components/VideoComponent.vue'
+import VideoListComponent from '@/components/VideoListComponent.vue'
+import GoTopBtn from '@/components/GoTopBtn.vue'
+import ShareBtn from '@/components/ShareBtn.vue'
 import { mapGetters } from 'vuex'
 
 export default {

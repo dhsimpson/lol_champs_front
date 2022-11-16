@@ -1,8 +1,8 @@
 <template>
   <ul class="season-list">
-    <li v-for="seasonTeam in seasonTeamList" :key="seasonTeam.season">
-      <span :class="{active: seasonTeam.isActive}" @click.stop="selectSeason(seasonTeam.season)">
-        {{seasonTeam.season}}
+    <li v-for="season in seasonList" :key="season">
+      <span :class="{active: season==selectedSeason}" @click.stop="selectSeason(season)">
+        {{season}}
       </span>
     </li>
   </ul>
@@ -15,7 +15,8 @@ import atomicModal from '@/composables/atomicModal';
 export default {
   computed: {
     ...mapGetters({
-      seasonTeamList: 'GET_SEASON_TEAM_LIST'
+      seasonList: 'GET_SEASON_LIST',
+      selectedSeason: 'GET_SELECTED_SEASON',
     })
   },
   setup() {
@@ -24,8 +25,8 @@ export default {
   },
   methods: {
     selectSeason(season) {
-        this.$store.commit('SET_SELECTED_SEASON', season);
         this.$store.commit('SET_QUERY_PARAMS', {season});
+        this.$store.dispatch('FETCH_TEAM_LIST', season);
         this.closeAllModal();
     }
   }

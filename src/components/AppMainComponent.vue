@@ -34,7 +34,8 @@ export default {
   name: 'AppMainComponent',
   created() {
     this.$store.dispatch('FETCH_VIDEO_LIST', this.$route.query);
-    this.$store.dispatch('FETCH_SEASON_TEAM_LIST');
+    this.$store.dispatch('FETCH_SEASON_LIST');
+    this.$store.dispatch('FETCH_TEAM_LIST');
     this.$store.dispatch('FETCH_SORT_LIST');
   },
   computed: {

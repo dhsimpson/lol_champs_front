@@ -1,14 +1,15 @@
 <template>
-    <ul v-if="teamList" :class="['team-list']">
+    <ul :class="['team-list']">
         <li v-for="team in teamList" :key="team">
-            <span :class="{active: team.isActive}" @click.stop="selectTeam(team.name)">
-                {{team.name}}
+            <span :class="{active: team==selectedTeam}" @click.stop="selectTeam(team)">
+                {{team}}
             </span>
         </li>
     </ul>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import atomicModal from '@/composables/atomicModal';
 
 export default {
@@ -22,21 +23,15 @@ export default {
         return {closeAllModal};
     },
     computed: {
-        teamList() {
-            const seasonTeamList = this.$store.getters['GET_SEASON_TEAM_LIST'];
-            const teamList = seasonTeamList.filter(seasonTeam => {
-                if(seasonTeam.isActive){
-                    this.season = seasonTeam.season;
-                }
-                return seasonTeam.isActive;
-            })
-            return teamList[0]?.teams;
-        }
+        ...mapGetters({
+            teamList: 'GET_TEAM_LIST',
+            selectedTeam: 'GET_SELECTED_TEAM'
+        })
     },
     methods: {
         selectTeam(team) {
-            this.$store.commit('SET_SELECTED_TEAM', {season: this.season, name: team});
             this.$store.commit('SET_QUERY_PARAMS', {team});
+            this.$store.dispatch('FETCH_SEASON_LIST', team);
             this.closeAllModal();
         }
     }

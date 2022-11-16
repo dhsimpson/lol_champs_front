@@ -8,17 +8,23 @@ export default {
     TOGGLE_IS_LOADING(state, toggleState) {
         state.isLoading = toggleState;
     },
-    SET_SEASON_TEAM_LIST(state, seasonTeamList) {
-        state.seasonTeamList = seasonTeamList.map((seasonTeam) => {
-            seasonTeam.teams = seasonTeam.teams.map(team => {
-                return {name: team, isActive: false}
-            });
-            seasonTeam.isActive = false;
-            return seasonTeam;
-        });
+    SET_SEASON_LIST(state, seasonTeamList) {
+        const seasonSet = new Set();
+        seasonTeamList.forEach(seasonTeam => seasonSet.add(seasonTeam.season))
+        state.seasonList = Array.from(seasonSet);
     },
-    SET_SELECTED_SEASON(state, season) {
-        state.seasonTeamList.forEach( seasonTeam => seasonTeam.isActive = (seasonTeam.season === season));
+    SET_TEAM_LIST(state, seasonTeamList) {
+        if(seasonTeamList.length > 1) {
+            const teamSet = new Set();
+            seasonTeamList.forEach(seasonTeam => {
+                seasonTeam.teams.forEach(team => {
+                    if(team) {teamSet.add(team)}
+                })
+            })
+            state.teamList = Array.from(teamSet)
+        }else{
+            state.teamList = seasonTeamList[0].teams.filter(team => team!='')
+        }
     },
     SET_SELECTED_TEAM(state, {season, name}) {
         state.seasonTeamList.forEach(seasonTeam => {
@@ -50,9 +56,5 @@ export default {
     },
     RESET_QUERY_PARAMS(state) {
         state.params = {};
-        state.seasonTeamList.forEach((seasonTeam) => {
-            seasonTeam.teams.forEach(team => team.isActive = false);
-            seasonTeam.isActive = false;
-        });
     }
 }

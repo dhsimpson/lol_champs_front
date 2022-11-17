@@ -36,14 +36,15 @@ export default {
     SET_SORT_LIST(state, sortList) {
         state.sortList = sortList.map(sort => {
             return {
-                name: sort,
+                name: sort.name,
+                value: sort.value,
                 isActive: false
             }
         })
     },
     SET_SORT_OPTION(state, sortOption) {
         state.sortList.forEach(sort => sort.isActive = (sort.name == sortOption.name))
-        state.params.sortOption = sortOption.name;
+        state.params.sortOption = sortOption.value;
     },
     SET_OPEN_ATOMIC_MODAL_NAME(state, openAtomicModalName) {
         state.openAtomicModalName = state.openAtomicModalName == openAtomicModalName ? '' : openAtomicModalName

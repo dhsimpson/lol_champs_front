@@ -2,7 +2,7 @@
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
       <span>{{videoList?.length ?? 0}} 개의 경기 동영상</span>
-      <button id="sort-button" @click="showModal()">{{sortOption || '정렬 방법 선택'}}</button>
+      <button id="sort-button" @click="showModal()">{{sortOptionName || '정렬 방법 선택'}}</button>
       <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
         <sort-modal/>
       </teleport>
@@ -25,8 +25,13 @@ export default {
     ...mapGetters({
       videoList: 'GET_VIDEO_LIST',
       sortOption: 'GET_SORT_OPTION'
-    })
-  }
+    }),
+    sortOptionName() {
+        const sortList = this.$store.getters['GET_SORT_LIST'];
+        const activeSort = sortList.filter(sort => sort.isActive)
+        return activeSort.length > 0 ? activeSort[0].name : '';
+    }
+  },
 }
 </script>
 

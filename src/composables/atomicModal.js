@@ -16,7 +16,10 @@ export default function atomicModal(_modalName) {
         store.commit('SET_OPEN_ATOMIC_MODAL_NAME', '')
     }
 
-    const isShowModal = () => currModalName.value==_modalName;
+    const isShowModal = () => {
+        console.log(currModalName.value)
+        return currModalName.value==_modalName;
+    }
 
     return {showModal, currModalName, isShowModal, closeAllModal};
 }

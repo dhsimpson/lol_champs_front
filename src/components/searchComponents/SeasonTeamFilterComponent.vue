@@ -18,7 +18,7 @@
             <team-modal/>
         </template>
     </modal-toggle-btn>
-    <reset-filter-btn/>
+    <reset-filter-btn class="reset-filter-btn"/>
 </template>
 
 <script>
@@ -39,3 +39,11 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+@media screen and (min-width: 700px) {
+    .reset-filter-btn {
+        display: none;
+    }
+}
+</style>

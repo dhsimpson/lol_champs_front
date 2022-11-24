@@ -1,9 +1,9 @@
 <template>
   <div class="count-and-sort-wrapper">
     <div class="count-and-sort-container">
-      <span>{{videoList?.length ?? 0}} 개의 경기 동영상</span>
-      <button id="sort-button" @click="showModal()">{{sortOptionName || '정렬 방법 선택'}}</button>
-      <teleport v-if="isShowModal()" to="#sort-button" :disabled="false">
+      <span class="count-video-list">{{videoList?.length ?? 0}} 개의 경기 동영상</span>
+      <button :id="sortModalName" @click="showModal()">{{sortOptionName || '정렬 방법 선택'}}</button>
+      <teleport v-if="isShowModal()" :to="`#${sortModalName}`" :disabled="false">
         <sort-modal/>
       </teleport>
     </div>
@@ -17,6 +17,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   components: { SortModal },
+  props: ["sortModalName"],
   setup() {
       const {showModal, currModalName, isShowModal} = atomicModal('sortModal');
       return {showModal, currModalName, isShowModal};
@@ -62,5 +63,10 @@ export default {
       position: relative;
     }
   }
+}
+@media screen and (min-width: 700px) {
+    .count-video-list {
+        display: none;
+    }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <ol v-for="(chunk, idx) in videoList" :key="idx" @touchmove="detectPagination">
+  <ol :class="deviceType" v-for="(chunk, idx) in videoList" :key="idx" @touchmove="detectPagination">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
       <button @click="showVideo(video)">
         <img :src="video.Thumbnails?.High.URL" :alt="video.Title">
@@ -12,7 +12,7 @@
       </button>
     </li>
   </ol>
-  <div class="videoListLoading" v-if="videoList.length<1">
+  <div :class="['videoListLoading', deviceType]" v-if="videoList.length<1">
     데이터를 로딩 중입니다!!
   </div>
 </template>
@@ -27,18 +27,18 @@ export default {
       showModal: false,
     }
   },
+  props: ['chunkSize', 'deviceType'],
   computed: {
     ...mapGetters({
         isLoading: 'GET_IS_LOADING'
     }),
     videoList() {
       const tempList = this.$store.getters['GET_VIDEO_LIST'];
-      const chunkSize = 2;
       return tempList.reduce((acc, curr, i) => {
         if(i==0) {
           return [[curr]];
         }
-        if(!(i%chunkSize)) {
+        if(!(i%this.chunkSize)) {
           acc.push([curr]);
           return acc;
         }
@@ -111,5 +111,22 @@ ol {
     font-size: 30px;
     font-weight: $font-weight-huge;
     color: $color-very-heavy-gray;
+}
+
+@media screen and (max-width: 700px) {
+    .pc {
+        display: none;
+    } 
+}
+@media screen and (min-width: 700px) {
+    .mw {
+        display: none;
+    } 
+    ol {
+        li {
+            width: 30%;
+            padding: 10px;
+        }
+    }
 }
 </style>

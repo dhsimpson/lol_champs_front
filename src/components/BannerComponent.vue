@@ -16,4 +16,9 @@ export default {
     width: 100%;
     padding: 10px 0;
 }
+@media screen and (min-width: 700px) {
+    .banner-image {
+        display: none;
+    }
+}
 </style>

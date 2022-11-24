@@ -37,4 +37,9 @@ button {
     justify-content: flex-start;
     position: relative;
 }
+@media screen and (min-width: 700px) {
+    button{
+        width: 50%;
+    }
+}
 </style>

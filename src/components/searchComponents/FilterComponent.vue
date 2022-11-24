@@ -23,4 +23,10 @@ export default {
   position: relative;
   width: 100%;
 }
+@media screen and (min-width: 700px) {
+    .filter-container {
+        width: 600px;
+        justify-content: flex-start;
+    }
+}
 </style>

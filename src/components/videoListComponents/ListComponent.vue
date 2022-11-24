@@ -1,5 +1,5 @@
 <template>
-  <ol :class="deviceType" v-for="(chunk, idx) in videoList" :key="idx" @touchmove="detectPagination">
+  <ol :class="deviceType" v-for="(chunk, idx) in videoList" :key="idx" @wheel="detectPagination" @touchmove="detectPagination">
     <li v-for="(video, chunkIdx) in chunk" :key="chunkIdx">
       <button @click="showVideo(video)">
         <img :src="video.Thumbnails?.High.URL" :alt="video.Title">

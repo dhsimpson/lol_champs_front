@@ -41,12 +41,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-iframe {
-    width: 100%;
-    height: 250px;
+.iframe-wrapper {
     position: sticky;
     top: 0;
     z-index: 10;
+    iframe {
+        width: 100%;
+        height: 250px;
+    }
 }
 .video-title {
     margin: 5px 0;
@@ -68,6 +70,7 @@ iframe {
 
 @media screen and (min-width: 700px) {
     .iframe-wrapper {
+            position: relative;
             width: 100%;
             display: flex;
             justify-content: center;

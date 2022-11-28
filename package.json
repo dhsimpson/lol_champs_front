@@ -1,6 +1,6 @@
 {
   "name": "lol_champs_front",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,6 +15,7 @@
     "sass-loader": "^13.0.2",
     "vue": "^3.2.13",
     "vue-router": "^4.0.13",
+    "vue3-youtube": "^0.1.9",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

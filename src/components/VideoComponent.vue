@@ -1,9 +1,6 @@
 <template>
     <div class="iframe-wrapper" id="lck-video-wrapper" tabindex="0">
-        <iframe v-if="selectedVideo" :src="`https://www.youtube.com/embed/${selectedVideo.VideoId}`" 
-                :title="selectedVideo.title" frameborder="0" 
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
+        <YouTube v-if="selectedVideo" width="100%" :height="videoHeight()" :src="`https://www.youtube.com/embed/${selectedVideo.VideoId}`" @ready="onReady" @stateChange="onStateChange"/>
     </div>
     <div v-if="selectedVideo" class="video-info-container">
         <div class="video-info-wrapper">
@@ -20,13 +17,26 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import YouTube from 'vue3-youtube';
+
 export default {
+    components: {
+        YouTube
+    },
     computed: {
         ...mapGetters({
             selectedVideo: 'GET_SELECTED_VIDEO'
         })
     },
     methods: {
+        onStateChange(e) {
+            if(e.data === 0) {
+                const videoList = this.$store.getters['GET_VIDEO_LIST'];
+                if(videoList[this.selectedVideo.idx+1]){
+                    this.$store.commit('SET_SELECTED_VIDEO', videoList[this.selectedVideo.idx+1]);
+                }
+            }
+        },
         filterViews(views) {
             if(views > 10000) {
                 return `${Math.floor(views/10000)}만`;
@@ -35,6 +45,9 @@ export default {
                 return `${Math.floor(views/1000)}천`;
             }
             return views;
+        },
+        videoHeight() {
+            return window.innerWidth > 700 ? 500 : 250;
         }
     }
 }
@@ -45,10 +58,6 @@ export default {
     position: sticky;
     top: 0;
     z-index: 10;
-    iframe {
-        width: 100%;
-        height: 250px;
-    }
 }
 .video-title {
     margin: 5px 0;
@@ -70,13 +79,12 @@ export default {
 
 @media screen and (min-width: 700px) {
     .iframe-wrapper {
-            position: relative;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        div {
             width: 100%;
-            display: flex;
-            justify-content: center;
-        iframe {
-            width: 80%;
-            height: 500px;
         }
     }
     .video-info-container {

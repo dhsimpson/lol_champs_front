@@ -35,6 +35,7 @@ export default {
     videoList() {
       const tempList = this.$store.getters['GET_VIDEO_LIST'];
       return tempList.reduce((acc, curr, i) => {
+        curr.idx = i;
         if(i==0) {
           return [[curr]];
         }

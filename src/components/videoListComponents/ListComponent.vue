@@ -64,6 +64,7 @@ export default {
     },
     showVideo(video) {
       this.$store.commit('SET_SELECTED_VIDEO', video);
+      document.getElementById('lck-video-wrapper').focus();
     },
     detectPagination() {
         if((window.innerHeight + window.scrollY + 400) >= document.body.offsetHeight && !this.isLoading) {

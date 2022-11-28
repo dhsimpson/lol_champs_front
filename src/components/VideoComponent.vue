@@ -1,11 +1,11 @@
 <template>
-    <div class="iframe-wrapper">
-        <iframe :src="`https://www.youtube.com/embed/${selectedVideo.VideoId}`" 
+    <div class="iframe-wrapper" id="lck-video-wrapper" tabindex="0">
+        <iframe v-if="selectedVideo" :src="`https://www.youtube.com/embed/${selectedVideo.VideoId}`" 
                 :title="selectedVideo.title" frameborder="0" 
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
     </div>
-    <div class="video-info-container">
+    <div v-if="selectedVideo" class="video-info-container">
         <div class="video-info-wrapper">
             <div class="video-title">{{selectedVideo.Title}}</div>
             <div class="views-date-wrapper">

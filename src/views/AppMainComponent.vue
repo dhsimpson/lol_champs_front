@@ -1,7 +1,7 @@
 <template>
   <header-component/>
   <banner-component/>
-  <video-component v-if="selectedVideo"/>
+  <video-component v-show="selectedVideo"/>
   <search-component/>
   <video-list-component/>
   <footer-component/>

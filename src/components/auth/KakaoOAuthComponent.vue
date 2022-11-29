@@ -1,5 +1,7 @@
 <template>
-  <a @click="getOAuth">kakao</a>
+    <a @click="getOAuth">
+        <img src="@/assets/images/kakao_login_large_wide.png" alt="kakaologin">
+    </a>
 </template>
 
 <script>
@@ -22,6 +24,13 @@ export default defineComponent({
 })
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+a {
+    display: inline-block;
+    img {
+        display: block;
+        width: 80%;
+        margin: auto;
+    }
+}
 </style>

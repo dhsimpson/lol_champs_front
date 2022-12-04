@@ -6,7 +6,6 @@ import VueCryptojs from 'vue-cryptojs'
 
 router.beforeEach( () => {
     if(!store.getters['USER/GET_IS_LOGIN']) {
-        console.log('뀨')
         store.dispatch('USER/FETCH_USER_DATA');
         return;
     }

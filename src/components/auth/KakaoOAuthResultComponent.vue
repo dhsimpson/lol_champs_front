@@ -64,7 +64,7 @@ export default defineComponent({
             this.cookies.set("lck-auth", encryptedToken)
         },
         async isSignUp() {
-            this.$store.commit('USER/FETCH_USER_DATA');
+            this.$store.dispatch('USER/FETCH_USER_DATA');
             
             // profile 데이터 형식 체크용
             // const lckAuth = this.cookies.get("lck-auth");

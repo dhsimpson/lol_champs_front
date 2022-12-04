@@ -24,14 +24,14 @@ export default {
     },
     computed: {
         ...mapGetters({
-            teamList: 'GET_TEAM_LIST',
-            selectedTeam: 'GET_SELECTED_TEAM'
+            teamList: 'MAIN/GET_TEAM_LIST',
+            selectedTeam: 'MAIN/GET_SELECTED_TEAM'
         })
     },
     methods: {
         selectTeam(team) {
-            this.$store.commit('SET_QUERY_PARAMS', {team});
-            this.$store.dispatch('FETCH_SEASON_LIST', team);
+            this.$store.commit('MAIN/SET_QUERY_PARAMS', {team});
+            this.$store.dispatch('MAIN/FETCH_SEASON_LIST', team);
             this.closeAllModal();
         }
     }

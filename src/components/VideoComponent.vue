@@ -25,15 +25,15 @@ export default {
     },
     computed: {
         ...mapGetters({
-            selectedVideo: 'GET_SELECTED_VIDEO'
+            selectedVideo: 'MAIN/GET_SELECTED_VIDEO'
         })
     },
     methods: {
         onStateChange(e) {
             if(e.data === 0) {
-                const videoList = this.$store.getters['GET_VIDEO_LIST'];
+                const videoList = this.$store.getters['MAIN/GET_VIDEO_LIST'];
                 if(videoList[this.selectedVideo.idx+1]){
-                    this.$store.commit('SET_SELECTED_VIDEO', videoList[this.selectedVideo.idx+1]);
+                    this.$store.commit('MAIN/SET_SELECTED_VIDEO', videoList[this.selectedVideo.idx+1]);
                 }
             }
         },

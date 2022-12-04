@@ -5,15 +5,15 @@ export default function atomicModal(_modalName) {
     const store = useStore();
     
     const currModalName = computed(() => {
-        return store.getters['GET_OPEN_ATOMIC_MODAL_NAME'];
+        return store.getters['MAIN/GET_OPEN_ATOMIC_MODAL_NAME'];
     });
 
     const showModal = () => {
-        store.commit('SET_OPEN_ATOMIC_MODAL_NAME', _modalName)
+        store.commit('MAIN/SET_OPEN_ATOMIC_MODAL_NAME', _modalName)
     }
 
     const closeAllModal = () => {
-        store.commit('SET_OPEN_ATOMIC_MODAL_NAME', '')
+        store.commit('MAIN/SET_OPEN_ATOMIC_MODAL_NAME', '')
     }
 
     const isShowModal = () => currModalName.value==_modalName;

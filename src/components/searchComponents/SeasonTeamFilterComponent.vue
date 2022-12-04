@@ -32,9 +32,9 @@ export default {
     components: { SeasonModal, ModalToggleBtn, TeamModal, ResetFilterBtn },
     computed: {
          ...mapGetters({
-            params: 'GET_QUERY_PARAMS',
-            selectedSeason: 'GET_SELECTED_SEASON',
-            selectedTeam: 'GET_SELECTED_TEAM'
+            params: 'MAIN/GET_QUERY_PARAMS',
+            selectedSeason: 'MAIN/GET_SELECTED_SEASON',
+            selectedTeam: 'MAIN/GET_SELECTED_TEAM'
         })
     }
 }

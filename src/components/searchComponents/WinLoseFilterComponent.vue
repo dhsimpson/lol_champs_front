@@ -19,12 +19,12 @@ export default {
     },
     computed: {
         ...mapGetters({
-            winLose: 'GET_SELECTED_WIN_LOSE'
+            winLose: 'MAIN/GET_SELECTED_WIN_LOSE'
         })
     },
     watch: {
         winLoseVal(val) {
-            this.$store.commit('SET_QUERY_PARAMS', {winLose: val})
+            this.$store.commit('MAIN/SET_QUERY_PARAMS', {winLose: val})
         }
     }
 }

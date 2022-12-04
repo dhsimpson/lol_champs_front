@@ -27,20 +27,20 @@ export default {
   },
   name: 'AppMainComponent',
   created() {
-    this.$store.dispatch('FETCH_VIDEO_LIST', this.$route.query);
-    this.$store.dispatch('FETCH_SEASON_LIST');
-    this.$store.dispatch('FETCH_TEAM_LIST');
-    this.$store.dispatch('FETCH_SORT_LIST');
+    this.$store.dispatch('MAIN/FETCH_VIDEO_LIST', this.$route.query);
+    this.$store.dispatch('MAIN/FETCH_SEASON_LIST');
+    this.$store.dispatch('MAIN/FETCH_TEAM_LIST');
+    this.$store.dispatch('MAIN/FETCH_SORT_LIST');
   },
   computed: {
     ...mapGetters({
-        selectedVideo: 'GET_SELECTED_VIDEO'
+        selectedVideo: 'MAIN/GET_SELECTED_VIDEO'
     })
   },
   watch: {
       $route(to, from) {
           if(to.fullPath !== from.fullPath) {
-              this.$store.dispatch('FETCH_VIDEO_LIST', to.query);
+              this.$store.dispatch('MAIN/FETCH_VIDEO_LIST', to.query);
           }
     //   console.log(this.$route.query)
       }

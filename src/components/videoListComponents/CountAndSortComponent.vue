@@ -24,11 +24,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      videoList: 'GET_VIDEO_LIST',
-      sortOption: 'GET_SORT_OPTION'
+      videoList: 'MAIN/GET_VIDEO_LIST',
+      sortOption: 'MAIN/GET_SORT_OPTION'
     }),
     sortOptionName() {
-        const sortList = this.$store.getters['GET_SORT_LIST'];
+        const sortList = this.$store.getters['MAIN/GET_SORT_LIST'];
         const activeSort = sortList.filter(sort => sort.isActive)
         return activeSort.length > 0 ? activeSort[0].name : '';
     }

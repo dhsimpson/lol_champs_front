@@ -30,10 +30,10 @@ export default {
   props: ['chunkSize', 'deviceType'],
   computed: {
     ...mapGetters({
-        isLoading: 'GET_IS_LOADING'
+        isLoading: 'MAIN/GET_IS_LOADING'
     }),
     videoList() {
-      const tempList = this.$store.getters['GET_VIDEO_LIST'];
+      const tempList = this.$store.getters['MAIN/GET_VIDEO_LIST'];
       return tempList.reduce((acc, curr, i) => {
         curr.idx = i;
         if(i==0) {
@@ -64,13 +64,13 @@ export default {
       return '오늘';
     },
     showVideo(video) {
-      this.$store.commit('SET_SELECTED_VIDEO', video);
+      this.$store.commit('MAIN/SET_SELECTED_VIDEO', video);
       document.getElementById('lck-video-wrapper').focus();
     },
     detectPagination() {
         if((window.innerHeight + window.scrollY + 400) >= document.body.offsetHeight && !this.isLoading) {
-            this.$store.commit('TOGGLE_IS_LOADING', true);
-            this.$store.dispatch('ADD_VIDEO_LIST', this.$route.query);
+            this.$store.commit('MAIN/TOGGLE_IS_LOADING', true);
+            this.$store.dispatch('MAIN/ADD_VIDEO_LIST', this.$route.query);
         }
     }
   }

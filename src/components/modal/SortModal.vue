@@ -13,7 +13,7 @@ import atomicModal from '@/composables/atomicModal';
 export default {
   computed: {
     ...mapGetters({
-      sortList: 'GET_SORT_LIST'
+      sortList: 'MAIN/GET_SORT_LIST'
     })
   },
   setup() {
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     selectSort(sort){
-      this.$store.commit('SET_SORT_OPTION', sort);
+      this.$store.commit('MAIN/SET_SORT_OPTION', sort);
       this.closeAllModal();
     }
   }

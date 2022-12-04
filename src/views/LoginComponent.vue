@@ -14,7 +14,10 @@ export default {
     components: { 
         KakaoOAuthComponent, 
         KakaoOAuthResultComponent 
-    }
+    },
+    // beforeRouteEnter(to, from, next) {
+        
+    // }
     
 }
 </script>

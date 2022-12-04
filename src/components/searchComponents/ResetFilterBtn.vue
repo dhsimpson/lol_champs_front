@@ -7,9 +7,9 @@
 export default {
     methods: {
         deleteTeamAndPlayer() {
-            this.$store.commit('RESET_QUERY_PARAMS');
-            this.$store.dispatch('FETCH_TEAM_LIST');
-            this.$store.dispatch('FETCH_SEASON_LIST');
+            this.$store.commit('MAIN/RESET_QUERY_PARAMS');
+            this.$store.dispatch('MAIN/FETCH_TEAM_LIST');
+            this.$store.dispatch('MAIN/FETCH_SEASON_LIST');
         }
     }
 }

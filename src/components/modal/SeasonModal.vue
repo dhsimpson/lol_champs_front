@@ -15,8 +15,8 @@ import atomicModal from '@/composables/atomicModal';
 export default {
   computed: {
     ...mapGetters({
-      seasonList: 'GET_SEASON_LIST',
-      selectedSeason: 'GET_SELECTED_SEASON',
+      seasonList: 'MAIN/GET_SEASON_LIST',
+      selectedSeason: 'MAIN/GET_SELECTED_SEASON',
     })
   },
   setup() {
@@ -25,8 +25,8 @@ export default {
   },
   methods: {
     selectSeason(season) {
-        this.$store.commit('SET_QUERY_PARAMS', {season});
-        this.$store.dispatch('FETCH_TEAM_LIST', season);
+        this.$store.commit('MAIN/SET_QUERY_PARAMS', {season});
+        this.$store.dispatch('MAIN/FETCH_TEAM_LIST', season);
         this.closeAllModal();
     }
   }

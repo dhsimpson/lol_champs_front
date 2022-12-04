@@ -2,18 +2,24 @@
     <header>
         <h3>롤 대회 하이라이트 골라보기</h3>
         <div>
-            <img src="http://k.kakaocdn.net/dn/bXLViz/btrMVtU8Ztp/xl6EeDs2cggUxVFKCeELR1/img_110x110.jpg" alt="이미지">
+            <img :src="thumbnail" alt="유저프로필썸네일">
         </div>
     </header>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 //메뉴는 내정보 /로그아웃 /최근에 본 영상(이건 나중에)??
 // mw, pc 각각 유튜브를 따르자.
 // 최초 어딘가에서 로그인 하면 store에 썸넬 등의 정보 저장?
 // 코드만 세션에 저장하구
 
 export default {
+    computed: {
+        ...mapGetters({
+            thumbnail: 'USER/GET_THUMBNAIL'
+        })
+    }
 }
 </script>
 

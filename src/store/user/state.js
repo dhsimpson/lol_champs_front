@@ -1,12 +1,3 @@
 export default () => ({
-    videoList: [],
-    // pageNum: 1,
-    isLoading: false,
-    seasonList: [],
-    teamList: [],
-    sortList: [],
-    openAtomicModalName: '',
-    selectedVideo: null,
-    params: {},
-    sortOption: ''
+    thumbnail: "http://k.kakaocdn.net/dn/bXLViz/btrMVtU8Ztp/xl6EeDs2cggUxVFKCeELR1/img_110x110.jpg"
 })

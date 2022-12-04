@@ -1,7 +1,7 @@
 <template>
     <header>
         <h3>
-            <router-link to="/">롤 대회 하이라이트 골라보기</router-link>
+            <router-link to="/">LCK 골라보기</router-link>
         </h3>
         <div>
             <img v-if="isLogin" :src="thumbnail" @click="toggleUserMenu" alt="유저프로필썸네일">

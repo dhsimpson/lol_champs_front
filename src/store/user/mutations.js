@@ -9,11 +9,9 @@ export default {
     SET_THUMBNAIL : (state, data) => {
         state.thumbnail = data;
     },
-    SET_LOGOUT : () => {
+    SET_LOGOUT (){
         cookies.remove("lck-auth");
-        this.commit('SET_IS_LOGIN', false);
-        this.commit('SET_THUMBNAIL', '');
-        // 쿠키삭제.
-
+        this.commit('USER/SET_IS_LOGIN',false);
+        this.commit('USER/SET_THUMBNAIL', '');
     }
 }

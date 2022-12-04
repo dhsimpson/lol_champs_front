@@ -38,7 +38,7 @@ export default {
             this.showUserMenu = !this.showUserMenu;
         },
         logout() {
-            this.$store.commit('USER/SET_IS_LOGIN');
+            this.$store.commit('USER/SET_LOGOUT');
         }
     }
 }

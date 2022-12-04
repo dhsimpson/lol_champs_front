@@ -1,8 +1,11 @@
 <template>
     <header>
-        <h3>롤 대회 하이라이트 골라보기</h3>
+        <h3>
+            <router-link to="/">롤 대회 하이라이트 골라보기</router-link>
+        </h3>
         <div>
-            <img :src="thumbnail" alt="유저프로필썸네일">
+            <img v-if="isLogin" :src="thumbnail" alt="유저프로필썸네일">
+            <router-link v-else to="/login">로그인</router-link>
         </div>
     </header>
 </template>
@@ -17,6 +20,7 @@ import { mapGetters } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
+            isLogin: 'USER/GET_IS_LOGIN',
             thumbnail: 'USER/GET_THUMBNAIL'
         })
     }
@@ -32,6 +36,10 @@ header {
     justify-content: center;
     align-items: center;
     padding: 0 20px;
+    a {
+        text-decoration: none;
+        color: $color-very-heavy-gray;
+    }
     h3 {
         margin: auto 0;
         line-height: 70px;

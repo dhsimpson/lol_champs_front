@@ -31,6 +31,7 @@ export default {
     this.$store.dispatch('MAIN/FETCH_SEASON_LIST');
     this.$store.dispatch('MAIN/FETCH_TEAM_LIST');
     this.$store.dispatch('MAIN/FETCH_SORT_LIST');
+    // this.$store.commit('USER/SET_IS_LOGIN', false);
   },
   computed: {
     ...mapGetters({

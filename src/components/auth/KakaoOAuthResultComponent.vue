@@ -1,5 +1,6 @@
 <template>
-    <p>{{profile}}</p>
+    <p></p>
+    <!-- <p>{{profile}}</p> -->
 </template>
 
 <script>
@@ -7,7 +8,7 @@ import {defineComponent} from 'vue';
 import axios from 'axios';
 import { useCookies } from "vue3-cookies";
 import CryptoJS from 'crypto-js';
-import {apiBaseUrl} from '@/js/const';
+// import {apiBaseUrl} from '@/js/const';
 
 export default defineComponent({
     data() {
@@ -25,9 +26,11 @@ export default defineComponent({
         const token = await this.getToken();
         this.saveTokenToCookie(token);
         //회원가입 여부 체크하는 로직..?? or TODO - 회원가입, 로그인 관련 로직 정리해야 함. 두 화면을 따로 만드는 게 맞나?
-        this.isSignUp();
-        // this.token=token;
-        // this.getProfile();
+        await this.isSignUp();
+        if(this.$store.getters['USER/GET_IS_LOGIN']) {
+            this.$router.push('/');
+        }
+        // this.getProfile(token);
     },
     methods: {
         async getToken() {
@@ -61,20 +64,23 @@ export default defineComponent({
             this.cookies.set("lck-auth", encryptedToken)
         },
         async isSignUp() {
-            const lckAuth = this.cookies.get("lck-auth");
-            const profile = await axios.get(`${apiBaseUrl}/auth`, {
-                headers: {
-                    Authorization: `Bearer ${lckAuth}`
-                }
-            });
-            console.log(profile)
-            this.profile = profile;
+            this.$store.commit('USER/FETCH_USER_DATA');
+            
+            // profile 데이터 형식 체크용
+            // const lckAuth = this.cookies.get("lck-auth");
+            // const profile = await axios.get(`${apiBaseUrl}/auth`, {
+            //     headers: {
+            //         Authorization: `Bearer ${lckAuth}`
+            //     }
+            // });
+            // console.log(profile)
+            // this.profile = profile;
         }
         /** 유저정보 쿼리 로직 예시 */
-        // ,async getProfile() {
+        // ,async getProfile(token) {
         //     const profile = await axios.get('https://kapi.kakao.com/v2/user/me', {
         //         headers: {
-        //             Authorization: `Bearer ${this.token}`
+        //             Authorization: `Bearer ${token}`
         //         }
         //     });
         //     console.log(profile)

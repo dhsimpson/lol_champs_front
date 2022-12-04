@@ -11,7 +11,7 @@ export default defineComponent({
     name: 'OAuthComponent',
     data() {
         const apikey = process.env.VUE_APP_OAUTH_KAKAO_API_KEY;
-        const redirectUri = process.env.VUE_APP_OAUTH_REDIRECT_URL;
+        const redirectUri = process.env.VUE_APP_OAUTH_REDIRECT_URL; //`${window.location.origin}${this.$router.options.history.state.back}`;
         return {
             kakaoOAuhUri: `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${apikey}&redirect_uri=${redirectUri}`
         }

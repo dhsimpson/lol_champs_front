@@ -4,6 +4,14 @@ import router from './router';
 import App from './App.vue'
 import VueCryptojs from 'vue-cryptojs'
 
+router.beforeEach( () => {
+    if(!store.getters['USER/GET_IS_LOGIN']) {
+        console.log('뀨')
+        store.dispatch('USER/FETCH_USER_DATA');
+        return;
+    }
+})
+
 const app = createApp(App);
 app.use(router);
 app.use(store);

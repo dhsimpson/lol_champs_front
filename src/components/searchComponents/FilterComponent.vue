@@ -25,7 +25,7 @@ export default {
 }
 @media screen and (min-width: 700px) {
     .filter-container {
-        width: 600px;
+        width: 400px;
         justify-content: flex-start;
     }
 }

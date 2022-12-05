@@ -84,7 +84,7 @@ export default {
         display: flex;
         justify-content: center;
         div {
-            width: 100%;
+            width: 80%;
         }
     }
     .video-info-container {
